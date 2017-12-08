@@ -32,8 +32,8 @@ class ShowsViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.searchBar.delegate = self
-        loadData()
         tableView.reloadData()
+        loadData()
     }
     
     
@@ -44,8 +44,8 @@ class ShowsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? EpisodesViewController {
-            let showID = shows[(tableView.indexPathForSelectedRow?.row)!].show.id
-            destination.episodeURL = "http://api.tvmaze.com/shows/\(String(describing: showID))/episodes"
+            let showID = shows[(tableView.indexPathForSelectedRow!.row)].show.id
+            destination.episodeURL = "http://api.tvmaze.com/shows/\(showID)/episodes"
         }
         
     }
@@ -93,4 +93,8 @@ extension ShowsViewController: UITableViewDataSource, UITableViewDelegate {
         return CGFloat(150)
     }
     
+    
+    
+    
 }
+

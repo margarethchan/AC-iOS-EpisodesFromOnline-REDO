@@ -10,6 +10,9 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    var selectedEpisode: Episode?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

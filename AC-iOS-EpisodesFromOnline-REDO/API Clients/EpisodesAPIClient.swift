@@ -12,8 +12,8 @@ struct EpisodeAPIClient {
     private init() {}
     static let manager = EpisodeAPIClient()
     
-    func getShows(from urlStr: String,
-                  completionHandler: @escaping ([ShowInfo]) -> Void,
+    func getEpisodes(from urlStr: String,
+                  completionHandler: @escaping ([Episode]) -> Void,
                   errorHandler: @escaping (AppError) -> Void) {
         
         
@@ -23,7 +23,7 @@ struct EpisodeAPIClient {
         }
         let completion: (Data) -> Void = {(data: Data) in
             do {
-                let episodeInfo = try JSONDecoder().decode([ShowInfo].self, from: data)
+                let episodeInfo = try JSONDecoder().decode([Episode].self, from: data)
                 completionHandler(episodeInfo)
             }
             catch {
