@@ -10,6 +10,12 @@ import UIKit
 
 class EpisodesViewController: UIViewController {
 
+    
+    var episodeURL: String?
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
