@@ -73,13 +73,14 @@ extension ShowsViewController: UITableViewDataSource, UITableViewDelegate {
         let show = shows[indexPath.row]
         guard let showCell = tableView.dequeueReusableCell(withIdentifier: "Show Cell", for: indexPath) as? CustomShowCell else { return UITableViewCell() }
         showCell.showNameLabel.text = show.show.name
-        guard let rating = (show.show.rating?.average) else {
+        showCell.showImageView.image = nil
+        guard let rating = (show.show.rating.average) else {
             showCell.showRatingLabel.text = "No rating"
             return showCell
             
         }
         showCell.showRatingLabel?.text = "Rated: \(rating)"
-        guard let imageUrlStr = show.show.image?.medium else { return showCell }
+        guard let imageUrlStr = show.show.image?.original else { return showCell }
         let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
             showCell.showImageView.image = onlineImage
             showCell.setNeedsLayout()
