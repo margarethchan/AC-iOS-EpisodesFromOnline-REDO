@@ -23,6 +23,7 @@ class ShowsViewController: UIViewController {
     var searchTerm = "" {
         didSet {
             loadData()
+            tableView.reloadData()
         }
     }
     
@@ -32,8 +33,6 @@ class ShowsViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.searchBar.delegate = self
-        tableView.reloadData()
-        loadData()
     }
     
     
@@ -73,24 +72,27 @@ extension ShowsViewController: UITableViewDataSource, UITableViewDelegate {
         guard let showCell = tableView.dequeueReusableCell(withIdentifier: "Show Cell", for: indexPath) as? CustomShowCell else { return UITableViewCell() }
         showCell.showNameLabel.text = show.show.name
         showCell.showImageView.image = nil
-        guard let rating = (show.show.rating?.average) else {
+        
+        if let imageUrlStr = show.show.image?.original  {
+            let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
+                showCell.showImageView.image = onlineImage
+                showCell.setNeedsLayout()
+            }
+            ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: completion, errorHandler: {print($0)})
+        } else {
+            showCell.showImageView.image = #imageLiteral(resourceName: "No_Image_Available")
+        }
+        
+        if let rating = show.show.rating?.average {
+            showCell.showRatingLabel?.text = "Rated: \(rating)"
+        } else {
             showCell.showRatingLabel.text = "No rating"
-            return showCell
         }
-        showCell.showRatingLabel?.text = "Rated: \(rating)"
-        
-        
-        guard let imageUrlStr = show.show.image?.original else { return showCell }
-        let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
-            showCell.showImageView.image = onlineImage
-            showCell.setNeedsLayout()
-        }
-        ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: completion, errorHandler: {print($0)})
         return showCell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(150)
+        return CGFloat(250)
     }
     
     

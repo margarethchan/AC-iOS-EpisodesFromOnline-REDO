@@ -17,7 +17,6 @@ class EpisodesViewController: UIViewController {
     var episodes = [Episode]() {
         didSet {
             episodeTableView.reloadData()
-            print("episodes loaded")
         }
     }
     
@@ -61,7 +60,9 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
         episodeCell.episodeNumberLabel.text = "S: \(season) E: \(number)"
         episodeCell.episodeImageView.image = nil
         
-        guard let imageURL = episode.image?.original else {
+        guard let imageURL = episode.image?.medium else {
+            episodeCell.episodeImageView.image = #imageLiteral(resourceName: "No_Image_Available")
+            episodeCell.setNeedsLayout()
             return episodeCell
         }
         
