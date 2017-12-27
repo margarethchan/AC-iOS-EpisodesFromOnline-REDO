@@ -15,9 +15,7 @@ struct ShowAPIClient {
     func getShows(from urlStr: String,
                   completionHandler: @escaping ([ShowInfo]) -> Void,
                   errorHandler: @escaping (AppError) -> Void) {
-        
-        
-        guard let url = URL(string: urlStr) else {
+        guard let url = URL(string: urlStr) else { // makes a URL out of a URL string
             errorHandler(.badURL)
             return
         }

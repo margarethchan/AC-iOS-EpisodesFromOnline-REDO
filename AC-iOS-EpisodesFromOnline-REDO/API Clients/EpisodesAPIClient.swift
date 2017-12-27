@@ -15,8 +15,6 @@ struct EpisodeAPIClient {
     func getEpisodes(from urlStr: String,
                   completionHandler: @escaping ([Episode]) -> Void,
                   errorHandler: @escaping (AppError) -> Void) {
-        
-        
         guard let url = URL(string: urlStr) else {
             errorHandler(.badURL)
             return

@@ -10,12 +10,17 @@ import Foundation
 
 /// http://api.tvmaze.com/shows/139/episodes
 
+
 struct Episode: Codable {
-    let name: String
+    let name: String?
     let season: Int?
     let number: Int?
-    let image: ImageWrapper?
+    let image: EpisodeImageWrapper?
     let summary: String?
 }
 
 
+struct EpisodeImageWrapper: Codable {
+    let medium: String?
+    let original: String?
+}

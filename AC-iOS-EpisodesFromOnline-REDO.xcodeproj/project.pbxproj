@@ -78,8 +78,8 @@
 			children = (
 				813C7EEB1FD9EB0D0009878A /* Main.storyboard */,
 				813C7EF91FD9EB9C0009878A /* Supporting Files */,
-				813C7F091FD9EFAA0009878A /* API Clients */,
 				813C7F0E1FD9F05E0009878A /* Models */,
+				813C7F091FD9EFAA0009878A /* API Clients */,
 				813C7F131FDA25D20009878A /* Custom Cells */,
 				813C7F001FD9EEC90009878A /* View Controllers */,
 				813C7EF31FD9EB0D0009878A /* Info.plist */,
@@ -110,11 +110,11 @@
 		813C7F091FD9EFAA0009878A /* API Clients */ = {
 			isa = PBXGroup;
 			children = (
-				813C7F011FD9EF4A0009878A /* ShowsAPIClient.swift */,
-				813C7F031FD9EF600009878A /* EpisodesAPIClient.swift */,
 				813C7F051FD9EF780009878A /* NetworkHelper.swift */,
 				813C7F141FDA262C0009878A /* AppError.swift */,
 				813C7F071FD9EF870009878A /* ImageAPIClient.swift */,
+				813C7F011FD9EF4A0009878A /* ShowsAPIClient.swift */,
+				813C7F031FD9EF600009878A /* EpisodesAPIClient.swift */,
 			);
 			path = "API Clients";
 			sourceTree = "<group>";

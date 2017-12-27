@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WPB-s9-RmO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WPB-s9-RmO">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -118,7 +118,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Episode Cell" rowHeight="200" id="rLj-Xx-5xY">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Episode Cell" rowHeight="200" id="rLj-Xx-5xY" customClass="CustomEpisodeCell" customModule="AC_iOS_EpisodesFromOnline_REDO" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rLj-Xx-5xY" id="5dd-sX-XtF">
@@ -126,13 +126,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Episode Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh4-Bc-dnb">
-                                                    <rect key="frame" x="145" y="49" width="210" height="21"/>
+                                                    <rect key="frame" x="145" y="11" width="210" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episode Season / Episode Num" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Idc-Hh-gVb">
-                                                    <rect key="frame" x="145" y="116" width="225" height="21"/>
+                                                    <rect key="frame" x="145" y="100.5" width="225" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -145,16 +145,19 @@
                                                 <constraint firstItem="hel-h8-mLa" firstAttribute="height" secondItem="5dd-sX-XtF" secondAttribute="height" id="5B2-Yy-LLf"/>
                                                 <constraint firstAttribute="trailing" secondItem="Idc-Hh-gVb" secondAttribute="trailing" constant="5" id="5Rh-RW-l9e"/>
                                                 <constraint firstItem="dh4-Bc-dnb" firstAttribute="leading" secondItem="hel-h8-mLa" secondAttribute="trailing" constant="5" id="Cw6-Lv-1fI"/>
+                                                <constraint firstItem="dh4-Bc-dnb" firstAttribute="top" secondItem="hel-h8-mLa" secondAttribute="top" id="KU0-HU-E6I"/>
                                                 <constraint firstItem="hel-h8-mLa" firstAttribute="top" secondItem="5dd-sX-XtF" secondAttribute="topMargin" id="U0q-ZN-aQp"/>
-                                                <constraint firstItem="dh4-Bc-dnb" firstAttribute="top" secondItem="5dd-sX-XtF" secondAttribute="top" constant="49" id="Xyu-kR-kJm"/>
-                                                <constraint firstItem="Idc-Hh-gVb" firstAttribute="top" secondItem="dh4-Bc-dnb" secondAttribute="bottom" constant="46" id="e4j-hn-ZDA"/>
                                                 <constraint firstItem="Idc-Hh-gVb" firstAttribute="leading" secondItem="hel-h8-mLa" secondAttribute="trailing" constant="5" id="eUi-pN-VOx"/>
                                                 <constraint firstItem="hel-h8-mLa" firstAttribute="leading" secondItem="5dd-sX-XtF" secondAttribute="leadingMargin" id="gOn-E2-25O"/>
+                                                <constraint firstItem="Idc-Hh-gVb" firstAttribute="centerY" secondItem="hel-h8-mLa" secondAttribute="centerY" id="kPf-eL-eNZ"/>
                                                 <constraint firstItem="hel-h8-mLa" firstAttribute="width" secondItem="5dd-sX-XtF" secondAttribute="width" multiplier="1:3" id="ot6-Xs-cH5"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="dh4-Bc-dnb" secondAttribute="trailing" constant="5" id="wHw-Dv-vxA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="episodeImageView" destination="hel-h8-mLa" id="Wa6-RI-PzX"/>
+                                            <outlet property="episodeNameLabel" destination="dh4-Bc-dnb" id="z93-jU-Ygl"/>
+                                            <outlet property="episodeNumberLabel" destination="Idc-Hh-gVb" id="8EB-gn-tB6"/>
                                             <segue destination="jTn-a4-W0j" kind="show" id="R61-qS-RpM"/>
                                         </connections>
                                     </tableViewCell>

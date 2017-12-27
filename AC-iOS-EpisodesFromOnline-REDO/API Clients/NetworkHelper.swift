@@ -19,7 +19,7 @@ class NetworkHelper {
                     errorHandler(AppError.noDataReceived)
                     return
                 }
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                guard (response as? HTTPURLResponse) != nil else {
                     errorHandler(AppError.badStatusCode)
                     return
                 }
